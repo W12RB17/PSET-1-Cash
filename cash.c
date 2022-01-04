@@ -30,9 +30,18 @@ int get_cents(void)
 
 int calculate_quarters(int cents)
 {
-    int result = cents - 25;
- 
-    printf("\nel resultado es %i\n\n", result);
-
-    
+    int result = cents % 25;
+    if (result == 0)
+    {
+        int quarters = cents / 25;
+        printf("\nI should give you %i quarters\n\n", quarters);
+    }
+    else if (result == cents)
+    {
+        printf("\nNot possible to give you quarters, try with other coins\n\n");
+    }
+    else if (result != 0 && result != cents)
+    {
+        printf("\nte doy %i quarters y sobran %i centavos\n\n", cents / 25 , result);
+    }
 }
