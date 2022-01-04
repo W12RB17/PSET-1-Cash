@@ -7,6 +7,7 @@
 
 int get_cents(void);
 int calculate_quarters(int get_cents);
+int calculate_dimes(int cents);
 
 int main(void)
 { 
@@ -31,17 +32,30 @@ int get_cents(void)
 int calculate_quarters(int cents)
 {
     int result = cents % 25;
-    if (result == 0)
+    int quarters = cents / 25;
+
+    if (result == 0 || result == cents)
     {
-        int quarters = cents / 25;
-        printf("\nI should give you %i quarters\n\n", quarters);
-    }
-    else if (result == cents)
-    {
-        printf("\nNot possible to give you quarters, try with other coins\n\n");
+        printf("Quarters: %i\n\n", quarters);
     }
     else if (result != 0 && result != cents)
     {
-        printf("\nte doy %i quarters y sobran %i centavos\n\n", cents / 25 , result);
+        printf("\nte doy %i quarters y sobran %i centavos\n\n", quarters, result);
+    }
+}
+
+
+int calculate_dimes(int cents)
+{
+    int result = cents % 25;
+    int dimes = cents / 25;
+
+    if (result == 0 || result == cents)
+    {
+        printf("Quarters: %i\n\n", dimes);
+    }
+    else if (result != 0 && result != cents)
+    {
+        printf("\nte doy %i quarters y sobran %i centavos\n\n", dimes, result);
     }
 }
