@@ -3,8 +3,6 @@
 #include <cs50.h>
 #include <stdio.h>
 
-
-
 int get_cents(void);
 int calculate_quarters(int get_cents);
 int calculate_dimes(int cents);
@@ -20,9 +18,6 @@ int main(void)
     int pennies = calculate_pennies(cents);
     printf("\nQuarters: %i\nDimes: %i\nNickels: %i\nPennies: %i \n\n", quarters, dimes, nickels, pennies);
 }
-
-
-
 
 int get_cents(void)
 {   
