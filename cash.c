@@ -8,10 +8,17 @@
 int get_cents(void);
 int calculate_quarters(int get_cents);
 int calculate_dimes(int cents);
+int calculate_nickels(int cents);
+int calculate_pennies(int cents);
 
 int main(void)
 { 
- calculate_quarters(get_cents());
+    int cents = get_cents();
+    int quarters = calculate_quarters(cents);
+    int dimes = calculate_dimes(cents);
+    int nickels = calculate_nickels(cents);
+    int pennies = calculate_pennies(cents);
+    printf("\nQuarters: %i\nDimes: %i\nNickels: %i\nPennies: %i \n\n", quarters, dimes, nickels, pennies);
 }
 
 
@@ -31,31 +38,25 @@ int get_cents(void)
 
 int calculate_quarters(int cents)
 {
-    int result = cents % 25;
     int quarters = cents / 25;
-
-    if (result == 0 || result == cents)
-    {
-        printf("Quarters: %i\n\n", quarters);
-    }
-    else if (result != 0 && result != cents)
-    {
-        printf("\nte doy %i quarters y sobran %i centavos\n\n", quarters, result);
-    }
+    return quarters;
 }
 
 
 int calculate_dimes(int cents)
 {
-    int result = cents % 25;
-    int dimes = cents / 25;
+    int dimes = (cents % 25) / 10;
+    return dimes;
+}
 
-    if (result == 0 || result == cents)
-    {
-        printf("Quarters: %i\n\n", dimes);
-    }
-    else if (result != 0 && result != cents)
-    {
-        printf("\nte doy %i quarters y sobran %i centavos\n\n", dimes, result);
-    }
+int calculate_nickels(int cents)
+{
+    int nickels = ((cents % 25) % 10) / 5;
+    return nickels;
+}
+
+int calculate_pennies(int cents)
+{
+    int pennies = (((cents % 25) % 10) % 5) / 1;
+    return pennies;
 }
