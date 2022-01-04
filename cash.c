@@ -5,19 +5,34 @@
 
 
 
-void get_cents(void);
+int get_cents(void);
+int calculate_quarters(int get_cents);
 
 int main(void)
-{
- get_cents();   
+{ 
+ calculate_quarters(get_cents());
 }
 
-void get_cents(void)
+
+
+
+int get_cents(void)
 {   
     int cents_owed;
+
     do
     {
         cents_owed = get_int("\nHow many cents I owed you? ");
     } while (cents_owed < 0);
+
+    return cents_owed;   
+}
+
+int calculate_quarters(int cents)
+{
+    int result = cents - 25;
+ 
+    printf("\nel resultado es %i\n\n", result);
+
     
 }
